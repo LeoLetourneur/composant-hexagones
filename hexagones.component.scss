@@ -1,0 +1,91 @@
+$coteHex: 50px; 
+
+.hexagon-group {
+    position: relative;
+    left: 55px;
+    top: 10px;
+    height: 320px;
+}
+
+.progress {
+    margin-bottom : 0px;
+    margin-top : -19px;
+}
+
+.hexagon {
+	position: absolute;
+	z-index: 1;
+
+    .name {
+        position: relative;
+        margin-left: -15px;
+        z-index: 10;
+        font-size: 9px;
+        width: 80px;
+        height: 86px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color : white;
+    }
+
+    .hexfrag {
+        position: absolute;
+        width: $coteHex;
+        height: round($coteHex*0.8660254037*2);
+    }
+
+    .hex1 {
+        -webkit-transform: scale(1) rotate(30deg);
+        -moz-transform: scale(1) rotate(30deg);
+        -ms-transform: scale(1) rotate(30deg);
+        -o-transform: scale(1) rotate(30deg);
+        transform: scale(1) rotate(30deg);
+    }
+    .hex2 {
+        -webkit-transform: scale(1) rotate(90deg);
+        -moz-transform: scale(1) rotate(90deg);
+        -ms-transform: scale(1) rotate(90deg);
+        -o-transform: scale(1) rotate(90deg);
+        transform: scale(1) rotate(90deg);
+    }
+    .hex3 {
+        -webkit-transform: scale(1) rotate(-30deg);
+        -moz-transform: scale(1) rotate(-30deg);
+        -ms-transform: scale(1) rotate(-30deg);
+        -o-transform: scale(1) rotate(-30deg);
+        transform: scale(1) rotate(-30deg);
+    }
+
+    &:not(.complet) {
+        .hex1, .hex2, .hex3 {
+            background-color : #ddd!important;
+            border-width: 2px;
+            border-style: solid;
+            border-left : none!important;
+            border-right : none!important;
+        }
+
+        .name {
+            color : #333;
+        }
+    }
+
+    &.clickable {
+        &.selected, &:hover {
+            cursor : pointer;
+            .hex1, .hex2, .hex3 {
+                background-color : #888!important;
+                border-width: 2px;
+                border-style: solid;
+                border-left : none;
+                border-right : none;
+            }
+
+            .name {
+                color : white;
+            }
+        }
+    }
+}

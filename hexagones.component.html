@@ -1,0 +1,15 @@
+<div class="hexagon-group">
+    <div *ngFor="let theme of themes" class="hexagon" 
+        [ngClass]="{'selected' : selected == theme.code, 'complet' : theme.complet, 'clickable' : clickable}" 
+        [style.top.px]="theme.y" [style.left.px]="theme.x" (click)="clickOnTheme(theme)">
+        <div class="hexfrag hex1" [style.backgroundColor]="theme.couleur" [style.borderColor]="theme.couleur"></div>
+        <div class="hexfrag hex2" [style.backgroundColor]="theme.couleur" [style.borderColor]="theme.couleur"></div>
+        <div class="hexfrag hex3" [style.backgroundColor]="theme.couleur" [style.borderColor]="theme.couleur"></div>
+        <div class="name">{{theme.nom}}</div>
+    </div>
+</div>
+<div class="progress progress-striped active" *ngIf="displayProgress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="progress" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width.%' : progress}">
+        {{progress}}%
+    </div>
+</div>
